@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body class="body">
+    <div class="container">
+        <div class="titulo">
+            <h2>Manage <b>Employees</b></h2>
+
+            <div class="agregar">
+                <! -- button id"mostrar modal"/button --> 
+                <i class="material-icons">&#xE147;</i>
+                <span>Add New Employee</span>
+
+            </div>
+        </div>
+        <div class="modal-content" class="modal">
+            <form>
+            <div class="modal-header"></div>
+            <div class="modal-body"></div>
+            <div class="modal-footer"></div>
+            </form>
+        </div>
+    </div>
+        <div class="formulario">
+            <input id="buscar" input placeholder="Filter...">
+        </div>
+        <div class="datosSeparados">
+            <table class="datos">
+                <thead>
+                    <tr>
+                        <th>
+                            <span class="chequear">
+                                <input type="checkbox">
+                            </span>
+                        </th>
+                        <th>Name</th>
+
+                        <th>Email</th>
+
+                        <th>Address</th>
+
+                        <th>Phone</th>
+
+                        <th>Actions</th>
+
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <spam class="check-box2">
+                                <input type="checkbox">
+                                <label></label>
+                            </spam>
+                        </td>
+                        <td>Bruce Wayne</td>
+                        <td>bruce@wayneenterpreises.com</td>
+                        <td>Address Gotham City</td>
+                        <td>08009991111</td>
+
+                        <td>
+                            <i class="material-icons" title="Edit">&#xE254;</i>
+                            <i class="material-icons" title="Delete">&#xE872;</i>
+                        </td>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
