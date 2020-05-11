@@ -13,14 +13,16 @@ nav {
     color:#fff;
     }
 
-.agregar {
+#addUser {
     background-color: #5cb85c;
     padding: 5px;
     border: 1px solid #68d368;
     border-radius: 4px;
     display: flex;
     justify-content: center;
-    align-items: center;      
+    align-items: center;
+    font-family: 'varela round', sans-serif;      
+    color: #fff;
     }
 
 .filter-container {
