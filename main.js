@@ -5,12 +5,12 @@ const modal = document.getElementById("modal")
 const userForm = (userList) => {
     let acc = "";
     const employee = document.getElementById("employeeslist")
-    console.log(userList)
-    userList.forEach(employeeslist => {
-        let name = employeeslist.fullname
-        let email = employeeslist.email
-        let address = employeeslist.address
-        let phone = employeeslist.phone
+    // console.log(userList)
+    userList.forEach(employee => {
+        let name = employee.fullname
+        let email = employee.email
+        let address = employee.address
+        let phone = employee.phone
 
         acc += `<tr>
         <td>${name}</td>
@@ -122,7 +122,7 @@ const mostrarModal = () => {
     <label>Name</label>
     <input type="text" id="new-name" value=${name}>
     <label>Email</label>
-    <input type="text" id="new-email" value=${email}>
+    
     <label>Address</label>
     <textarea name="address" rows="2" cols="30" id="new-address"> ${address}> </textarea>
     <label>Phone</label>
@@ -144,7 +144,7 @@ cancel.onclick = () => {
 
 
 addUser.onclick = () => {
-    modal.classList.remove('nomostrar')
+    modal.classList.remove("nomostrar")
     mostrarModal()
   
     const add = document.getElementById("add")
@@ -170,7 +170,7 @@ addUser.onclick = () => {
           body: JSON.stringify(newEmployee),
         })
         .then(data => data.json())
-        .then(result => {
+        .then(userList => {
           modal.classList.add('nomostrar')
           userForm();
         })
