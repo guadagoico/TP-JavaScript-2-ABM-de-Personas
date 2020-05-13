@@ -14,11 +14,12 @@
     <nav>
         <h1>Manage Employees G</h1>
         <div class="agregar">
-            <button id="addUser" >
+            <button type="submit" id="addUser">
                 <i class="material-icons">&#xE147;</i>
                 <span>Add New Employee</span>
             </button>
     </nav>
+    <div class="nomostrar" id="modal"></div>
 
     <div class="filter-container">
         <input id="buscar" placeholder="Filter...">
@@ -26,46 +27,14 @@
 
     <div class="container-data-table">
         <table>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <spam class="check-box2">
-                            <input type="checkbox">
-                            <label></label>
-                        </spam>
-                    </td>
-                    <td>Bruce Wayne</td>
-                    <td>bruce@wayneenterpreises.com</td>
-                    <td>Gotham City</td>
-                    <td>08009991111</td>
-
-                    <td>
-                        <i class="material-icons" id="buttonEdit" title="Edit">&#xE254;</i>
-                        <i class="material-icons" id="buttonDelete" title="Delete">&#xE872;</i>
-                    </td>
-                    </td>
-                </tr>
+            <tbody id="employeeslist">
             </tbody>
         </table>
+
     </div>
 
-    <!--<div class="modal-content" class="modal">
-        <form>
-            <div class="modal-header"></div>
-            <div class="modal-body"></div>
-            <div class="modal-footer"></div>
-        </form>
-    </div> -->
+    <div class='modal' id="modal" class="nomostrar">
+    </div>
 
     <script src="main.js"></script>
 </body>
