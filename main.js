@@ -23,7 +23,8 @@ const userForm = (userList) => {
       
         </td>
        <tr>`
-        listemployee.innerHTML = ` <thead><td>
+       // aca te reemplazo la variable que estaba por "employee", asi no rompe
+        employee.innerHTML = ` <thead><td>
                                     <tr>
                                         <th></th>
                                         <th>Name</th>
@@ -41,7 +42,11 @@ const viewuser = () => {
     fetch('https://tp-js-2-api-wjfqxquokl.now.sh/users')
         .then(data => data.json())
         .then(userList => {
-            viewuser(userList)
+            // Aca estabamos llamando a viewuser, con la consecuencia de que entrabamos en un loop
+            // infinito (porque la funcion se llamaba a si misma). 
+            // Probablemente querias llamar a userForm?
+            // viewuser(userList)
+            userForm(userList)
 
 
 
@@ -176,4 +181,10 @@ addUser.onclick = () => {
         })
     }
   }
-  userForm()
+
+  // Aca no queremos llamar a userForm, porque userForm necesita la lista de usuarios que nos traemos
+  // en el fetch a la API. 
+  // La reemplazo por viewuser() y te recomiendo otro nombre mas claro para esta funcion, 
+  // por ejemplo: fetchUsuarios()
+  viewuser()
+//   userForm()
