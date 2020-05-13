@@ -50,11 +50,11 @@ const viewuser = () => {
 
 
 
-            const editIcon = document.getElementsByName("icon-edit")
-            const del = document.getElementsByName("icon-delete")
+             const editIcon = document.getElementsByClassName("icon-edit")
+            const del = document.getElementsByClassName("icon-delete")
 
             for (let i = 0; i < editIcon.length; i++) {
-                edit[i].onclick = () => {
+                editIcon[i].onclick = () => {
                     const edit = editIcon[i].id
                     userList.forEach(element => {
                         if (element.id == edit.split('-')[1]) {
