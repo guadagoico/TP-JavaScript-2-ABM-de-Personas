@@ -22,17 +22,18 @@ const mostrarUsuariosEnPantalla = (result) => {
  <button class=button-icon-delete><i class="material-icons icon-delete" title="Delete" id="${employee.id}">&#xE872;</i></button>
  </td>   
  </tr>`
+        // aca te reemplazo la variable que estaba por "employee", asi no rompe
         rowEmployee.innerHTML = ` <table>
-<thead>
-<tr>
-  <th>Name</th>
-  <th>Email</th>
-  <th>Address</th>
-  <th>Phone</th>
-  <th>Actions</th>
-  </tr>
-  </thead>
-  </table>` + acc;
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Phone</th>
+    <th>Actions</th>
+    </tr>
+    </thead>
+    </table>` + acc;
     })
 }
 
@@ -42,6 +43,10 @@ const mostrarUsuarios = () => {
     fetch('https://tp-js-2-api-wjfqxquokl.now.sh/users')
         .then(data => data.json())
         .then(result => {
+            // Aca estabamos llamando a viewuser, con la consecuencia de que entrabamos en un loop
+            // infinito (porque la funcion se llamaba a si misma). 
+            // Probablemente querias llamar a userForm?
+            // viewuser(userList)
             mostrarUsuariosEnPantalla(result)
 
 
@@ -73,7 +78,7 @@ const mostrarUsuarios = () => {
                                     phone: phone,
                                 };
 
-
+                                //Editar usuario
                                 fetch(`https://tp-js-2-api-wjfqxquokl.now.sh/users/${element.id}`, {
                                         method: 'PUT',
                                         headers: {
@@ -92,7 +97,7 @@ const mostrarUsuarios = () => {
                 }
             }
 
-
+            //borrar usuario
             for (let i = 0; i < trash.length; i++) {
                 trash[i].onclick = () => {
                     const remove = trash[i].id
@@ -123,7 +128,7 @@ const mostrarUsuarios = () => {
 
 
 const mostrarModal = (name = "", email = "", address = "", tel = "") => {
-    modal.innerHTML = `<div class="modal-form-title">
+    modal.innerHTML = `<div class="modal-form-t">
         <h2>Add Employee</h2>
         </div>
         <form action="" method="get" class="modal-form">
@@ -145,7 +150,7 @@ const mostrarModal = (name = "", email = "", address = "", tel = "") => {
       '<button id="add">Add</button></div>'}
         </form>`
 
-    // excelente ese operador ternario!!
+
 
     const cancel = document.getElementById("cancel")
 
@@ -188,19 +193,9 @@ addButton.onclick = () => {
             })
     }
 }
-
-
-
-mostrarUsuarios()
-
-const usuarioFiltrado = document.getElementById("filter")
-
-usuarioFiltrado.onkeypress = e => {
-    if (e.keyCode == 13) {
-        fetch(`https://tp-js-2-api-wjfqxquokl.now.sh/users?search=${usuarioFiltrado.value}`)
-            .then(data => data.json())
-            .then(users => {
-                mostrarUsuariosEnPantalla(users);
-            })
-    }
-}
+  // Aca no queremos llamar a userForm, porque userForm necesita la lista de usuarios que nos traemos
+  // en el fetch a la API. 
+  // La reemplazo por viewuser() y te recomiendo otro nombre mas claro para esta funcion, 
+  // por ejemplo: fetchUsuarios()
+  mostrarUsuarios()
+//   userForm()
