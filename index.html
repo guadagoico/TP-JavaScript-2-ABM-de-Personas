@@ -12,28 +12,23 @@
 
 <body>
     <nav>
-        <h1>Manage Employees G</h1>
-        <div class="agregar">
-            <button type="submit" id="addUser">
-                <i class="material-icons">&#xE147;</i>
-                <span>Add New Employee</span>
-            </button>
+        <h2>Manage Employees</h2>
+        <button type="submit" id="add-button">
+            <i class="material-icons">&#xE147;</i>
+            <span>Add New Employee</span>
+        </button>
+
     </nav>
-    <div class="nomostrar" id="modal"></div>
-
-    <div class="filter-container">
-        <input id="buscar" placeholder="Filter...">
+    <div class="formularios">
+        <input id="filter" type="text" placeholder="Filter...">
     </div>
 
-    <div class="container-data-table">
-        <table>
-            <tbody id="employeeslist">
-            </tbody>
-        </table>
+    <table>
+        <tbody id="employees">
+        </tbody>
+    </table>
 
-    </div>
-
-    <div class='modal' id="modal" class="nomostrar">
+    <div id="modal" class="nomostrar">
     </div>
 
     <script src="main.js"></script>
